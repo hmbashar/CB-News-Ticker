@@ -27,6 +27,7 @@ function cb_news_ticker($attrs, $content = NULL) {
 		$cb_news_breaking = get_option('cb-news-ticker-bn-text'); // Breaking News Static Text
 		$close_button = get_option('cb-news-ticker-close-button'); // on/off cross button
 		$ticker_design = get_option('cb-news-ticker-design'); // selected design
+		$category_name = get_option('cb-news-ticker-post-cat'); // category name
 
 		// check user shortcode value for else working default value
 		$text_color = $color ? $color : $cbnt_text_color; // text color
@@ -36,6 +37,7 @@ function cb_news_ticker($attrs, $content = NULL) {
 		$bn_text = $bn_text ? $bn_text : $cb_news_breaking; // breaking news text
 		$button = $button ? $button : $close_button; // cross button on/off
 		$design = $design ? $design : $ticker_design; // change design
+		$cat_slug = $cat_slug ? $cat_slug : $category_name;
 
 
 		$button = $button ? $button : 1; // set default value for showing cross button

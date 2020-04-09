@@ -29,6 +29,9 @@ function cb_news_ticker_fields_register() {
 	
 	// Add Field for choose design
 	add_settings_field( 'cb-news-ticker-design', __('Choose your Design', 'CBNT'), 'cb_news_ticker_design', 'cb_news_ticker.php', 'cb_news_ticker_section' );
+	
+	// Add Field for choose design
+	add_settings_field( 'cb-news-ticker-post-cat', __('Choose your Cat', 'CBNT'), 'cb_news_ticker_cat_slug', 'cb_news_ticker.php', 'cb_news_ticker_section' );
 
 	// Register field
 	register_setting( 'cb_news_ticker_section', 'cb-news-ticker-news-text-color', array('sanitize_callback' => 'esc_attr') );
@@ -38,6 +41,7 @@ function cb_news_ticker_fields_register() {
 	register_setting( 'cb_news_ticker_section', 'cb-news-ticker-bn-text', array('sanitize_callback' => 'esc_attr') );
 	register_setting( 'cb_news_ticker_section', 'cb-news-ticker-close-button', array('sanitize_callback' => 'esc_attr') );
 	register_setting( 'cb_news_ticker_section', 'cb-news-ticker-design', array('sanitize_callback' => 'esc_attr') );
+	register_setting( 'cb_news_ticker_section', 'cb-news-ticker-post-cat', array('sanitize_callback' => 'esc_attr') );
 }
 add_action('admin_init', 'cb_news_ticker_fields_register');
 
@@ -131,6 +135,19 @@ function cb_news_ticker_design() {
 	foreach($items as $item) {
 		$selected = ($options==$item) ? 'selected="selected"' : '';
 		printf("<option value='%s' %s>%s</option>", $item, $selected, $item);		
+	}
+	echo "</select>";
+}
+
+//Choose your design here (Dropdown)
+function cb_news_ticker_cat_slug() {
+	$cat_slug = get_option('cb-news-ticker-post-cat');
+	$items = get_categories();	
+	
+	echo "<select id='cb-news-ticker-post-cat' name='cb-news-ticker-post-cat'>";
+	foreach($items as $item) {
+		$selected = ($cat_slug==$item->slug) ? 'selected="selected"' : '';
+		printf("<option value='%s' %s>%s</option>", $item->slug, $selected, $item->name);		
 	}
 	echo "</select>";
 }
