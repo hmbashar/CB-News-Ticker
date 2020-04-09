@@ -106,7 +106,7 @@ function cb_news_ticker_close_button() {
 	$close_button = get_option('cb-news-ticker-close-button');
 	$close_button_id = 'cb-news-ticker-close-button';	
 	
-	
+	$close_button = $close_button ? $close_button : 1;
 	$button_on = checked(1, $close_button, false);	
 	$button_off = checked(2, $close_button, false);
 

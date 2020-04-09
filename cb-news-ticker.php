@@ -2,7 +2,7 @@
 
 /*
 Plugin Name: CB News Ticker
-Plugin URI: https://codingbank.com/plugins/cb-news-ticker
+Plugin URI: http://www.codingbank.com/plugins/cb-news-ticker
 Author: Md Abul Bashar
 Author URI: https://www.codingbank.com
 Version: 1.0
