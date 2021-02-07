@@ -27,6 +27,12 @@ function cb_news_ticker_fields_register() {
 	// Add Field for close button
 	add_settings_field( 'cb-news-ticker-close-button', __('Switch Close Button', 'CBNT'), 'cb_news_ticker_close_button', 'cb_news_ticker.php', 'cb_news_ticker_section' );
 	
+	// Add Field for post or custom switch button
+	add_settings_field( 'cb-news-ticker-ts-button', __('Post/Custom Switch', 'CBNT'), 'cb_news_ticker_ts_button', 'cb_news_ticker.php', 'cb_news_ticker_section' );
+	
+	// Add Field for custom text
+	add_settings_field( 'cb-news-ticker-custom-text', __('Custom', 'CBNT'), 'cb_news_ticker_custom_text', 'cb_news_ticker.php', 'cb_news_ticker_section' );	
+
 	// Add Field for choose design
 	add_settings_field( 'cb-news-ticker-design', __('Choose your Design', 'CBNT'), 'cb_news_ticker_design', 'cb_news_ticker.php', 'cb_news_ticker_section' );
 	
@@ -39,7 +45,9 @@ function cb_news_ticker_fields_register() {
 	register_setting( 'cb_news_ticker_section', 'cb-news-ticker-post-id', array('sanitize_callback' => 'esc_attr') );
 	register_setting( 'cb_news_ticker_section', 'cb-news-ticker-post-count', array('sanitize_callback' => 'esc_attr') );
 	register_setting( 'cb_news_ticker_section', 'cb-news-ticker-bn-text', array('sanitize_callback' => 'esc_attr') );
+	register_setting( 'cb_news_ticker_section', 'cb-news-ticker-custom-text', array('sanitize_callback' => 'esc_html') );
 	register_setting( 'cb_news_ticker_section', 'cb-news-ticker-close-button', array('sanitize_callback' => 'esc_attr') );
+	register_setting( 'cb_news_ticker_section', 'cb-news-ticker-ts-button', array('sanitize_callback' => 'esc_attr') );
 	register_setting( 'cb_news_ticker_section', 'cb-news-ticker-design', array('sanitize_callback' => 'esc_attr') );
 	register_setting( 'cb_news_ticker_section', 'cb-news-ticker-post-cat', array('sanitize_callback' => 'esc_attr') );
 }
@@ -93,7 +101,7 @@ function cb_news_ticker_post_count() {
 }
 
 
-// News Ticker Post ID count
+// News Ticker breaking news
 function cb_news_ticker_breaking_news() {
 	$cb_news_breaking = get_option('cb-news-ticker-bn-text');
 	$cbnt_post_breaking = 'cb-news-ticker-bn-text';	
@@ -101,6 +109,17 @@ function cb_news_ticker_breaking_news() {
 
 	printf("<input type='text' id='%s' name='%s' class='regular-text'  value='%s' placeholder='Breaking News Text'>", $cbnt_post_breaking, $cbnt_post_breaking, $breaking_news);
 	printf('%s You can change the heading for breaking news static text, default Breaking News %s', '<p class="description">', '</p>');
+	
+}
+
+// News Ticker custom text
+function cb_news_ticker_custom_text() {
+	$cb_custom_text = get_option('cb-news-ticker-custom-text');
+	$cbnt_custom_text = 'cb-news-ticker-custom-text';	
+	$custom_text = $cb_custom_text ? $cb_custom_text : __('Custom Text', 'CBNT');
+
+	printf("<textarea id='%s' name='%s' class='regular-text' rows='10' class='large-text code' placeholder='Breaking News Text'> %s </textarea>", $cbnt_custom_text, $cbnt_custom_text, $custom_text);
+	printf('%s You can change the heading for breaking news static text, default custom text %s', '<p class="description">', '</p>');
 	
 }
 
@@ -121,6 +140,26 @@ function cb_news_ticker_close_button() {
 	
 	$button_off_switch = sprintf("<input type='radio' id='%s' name='%s' class='regular-text'  value='%s' %s>",'cb-news-t-button-off', $close_button_id, 2, $button_off);	
 	printf('%s %s Hide %s', '<label for="cb-news-t-button-off">',$button_off_switch, '</label>');
+	printf('%s You can show/hide your breaking news closing button. %s', '<p class="description">', '</p>');
+	
+}
+
+// News Ticker switch ticker or static button
+function cb_news_ticker_ts_button() {
+	$ts_button = get_option('cb-news-ticker-ts-button');
+	$ts_button_id = 'cb-news-ticker-ts-button';	
+	
+	$ts_button = $ts_button ? $ts_button : 1;
+	$button_on = checked(1, $ts_button, false);	
+	$button_off = checked(2, $ts_button, false);
+
+	
+	$button_on_switch = sprintf("<input type='radio' id='%s' name='%s' class='regular-text'  value='%s' %s>", 'cb-news-ts-button-on', $ts_button_id, 1, $button_on);	
+	printf('%s %s Post %s %s', '<label for="cb-news-ts-button-on">',$button_on_switch, '</label>', '<br>');
+
+	
+	$button_off_switch = sprintf("<input type='radio' id='%s' name='%s' class='regular-text'  value='%s' %s>",'cb-news-ts-button-off', $ts_button_id, 2, $button_off);	
+	printf('%s %s Custom %s', '<label for="cb-news-ts-button-off">',$button_off_switch, '</label>');
 	printf('%s You can show/hide your breaking news closing button. %s', '<p class="description">', '</p>');
 	
 }

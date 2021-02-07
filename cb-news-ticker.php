@@ -5,7 +5,7 @@ Plugin Name: CB News Ticker
 Plugin URI: http://www.codingbank.com/plugins/cb-news-ticker
 Author: Md Abul Bashar
 Author URI: https://www.codingbank.com
-Version: 1.0
+Version: 1.1
 Description: Display popular post using shortcode [cb-news-ticker]
 
 */
