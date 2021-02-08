@@ -12,17 +12,37 @@ Display News ticker [cb-news-ticker]
 
 == Description ==
 
-You can use the plugin for newspaper website as a news ticker, right now hs some of standard design, but coming soon awesome design for free, you can use the plugin anywhere buy using the shortcode [cb-news-ticker]
-Also have some of attribute 
-		'post_type' for post type
-		'count'	How much post will be show
-		'id'	which post will be show
-		'bg_color' you can change background color
-		'color'	you can change text color
-		'bn_text' you can change ('Breaking News') text
-		'button' you can swtich cross button (close button used cookies)
-		'design' you can choose normal or marquee design
-		'cat_slug' you can show category bese post
+You can use the plugin for newspaper website as a news ticker, right now hs some of standard design, but coming soon awesome design for free, 
+
+you can use the feature anywhere by using the shortcode [cb-news-ticker]
+
+Also, have some of attribute 
+
+	*'post_type' for post type
+
+	*'count'	How much postage will be shown
+
+	*'id'	which post will be shown
+
+	*'bg_color' you can change background-color
+
+	*'color'	you can change the text color
+
+	*'bn_text' you can change ('Breaking News') text
+
+	*'button' you can switch cross button (close button used cookies)
+
+	*'design' you can choose normal or marquee design
+
+	*'cat_slug' you can show categorize a post
+			
+	*'bn_bg' you can change your breaking news background-color
+			
+	*'bn_color' you can change your breaking news text color
+			
+	*'type' you can show 2 type data like 'post' or 'custom'
+			
+	*'custom_text' if you select custom text from type then you can write something using the attribute.
 
 
 == Installation ==
