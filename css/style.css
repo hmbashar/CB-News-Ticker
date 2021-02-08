@@ -1,40 +1,39 @@
 
 .cb-news-ticker-breaking-news-ticker-area{background-color: #FFC518;
-padding: .625em 0em;
 width: 100%;
 display: block;
 overflow: hidden;
+position: relative;
 }
-.cb-news-ticker-breaking-news-ticker{display: block;max-width: 1140px;margin: 0 auto;overflow: hidden;}
+.cb-news-ticker-breaking-news-ticker{display: block;max-width: 1200px;margin: 0 auto;overflow: hidden;}
 .cb-news-ticker-breaking-news{display: block;
 align-items: center;}
-.cb-news-ticker-breaking-news-heading{background-color: transparent;
+.cb-news-ticker-breaking-news-heading{background-color: black;
 border-right: 1px solid #1a1a1a;
 color: #1a1a1a;
 font-size: 1.125em;
 margin-right: .625em;
-padding: 0em .625em 0em 0em;
+padding: 8px 10px;
 display: inline-block;text-transform: uppercase;}
-.cb-news-ticker-breaking-news-heading strong{}
+.cb-news-ticker-breaking-news-heading strong{color:#fff;}
 .cb-news-ticker-breaking-news-content{display: inline-block;
 margin: .5em 0em .3125em;width: 80%;}
 .cb-news-ticker-breaking-news-content a{color: #1a1a1a;}
 .cb-news-ticker-breaking-news-content a:hover{text-decoration: none;}
 .cb-news-ticker-breaking-news-content h2{font: normal 400 1.0625em/1.05882 "PT Sans",Helvetica,sans-serif;
 padding-right: 1.25em;margin-right: .625em;color: #1a1a1a;margin-bottom: 0;}
-.cb-news-ticker-breaking-news-close{text-align: right;}
+.cb-news-ticker-breaking-news-close{text-align: right;margin-top: 5px;}
 .cb-news-ticker-breaking-news-close span{font-size: 19px;
 font-weight: bold;cursor: pointer;color: #000;}
 
 .cb-news-ticker-left {
-  float: left;
-  width: 85%;
+  width: 95%;
   overflow: hidden;
 }
 .cb-news-ticker-right {
-  width: 5%;
-  float: right;
-  overflow: hidden;
+  position: absolute;
+  top: 0;
+  right: 14%;
 }
 
 .cb-news-ticker-marquee{}
@@ -44,4 +43,4 @@ line-height: normal;}
 .cb-news-ticker-marquee ul li{display:inline-block;background-image: url('../assets/arrow.png');background-size: 15px;background-position: left center;padding-left: 20px;background-repeat: no-repeat;margin-right: 15px;padding-right: 15px;position: relative;}
 .cb-news-ticker-marquee ul li:after{content:'';width:1px;height:15px;background-color:#000;position: absolute;top: 1px;right: 0;}
 .cb-news-ticker-marquee ul li:last-child:after{display: none;}
-.cb-news-ticker-marquee ul li a{}
+.cb-news-ticker-marquee ul li a{color: black !important;padding: 5px;}
